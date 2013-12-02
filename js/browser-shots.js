@@ -11,20 +11,21 @@
 				onclick: function() {
 				
 					// Dialog prompt's
-					var width = prompt("How wide should the screenshot be?", "600");
+					var width = prompt("Screenshot width:", "600");
+					var height = prompt("Screenshot height:", "450");
 					var website = prompt("What's the URL of the website?", "http://www.kevinleary.net");
 					
+					// Build shortcode tag
 					if ( website != null && website != '' ) {
-						
-						// Width and website set
+						var shortcode = '[browser-shot url="' + website + '"';
 						if ( width != null && width != '' ) {
-							var shortcode = '[browser-shot width="' + width + '" url="' + website + '"]';
-							ed.execCommand( 'mceInsertContent', false, shortcode );
+							shortcode += ' width="' + width + '"';
 						}
-						else {
-							var shortcode = '[browser-shot url="' + website + '"]';
-							ed.execCommand( 'mceInsertContent', false, shortcode );
+						else if ( height != null && height != '' ) {
+							shortcode += ' height="' + height + '"';
 						}
+						var shortcode = ']';
+						ed.execCommand( 'mceInsertContent', false, shortcode );
 					}
 				}
 			});
@@ -38,7 +39,7 @@
 				author: 'Kevin Leary',
 				authorurl: 'http://www.kevinleary.net',
 				infourl: 'http://wordpress.org/extend/plugins/browser-shots/',
-				version: "1.0"
+				version: "1.2"
 			};
 		}
 	});
