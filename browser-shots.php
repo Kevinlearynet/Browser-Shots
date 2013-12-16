@@ -11,7 +11,7 @@ Author URI: http://www.kevinleary.net
 if ( !class_exists( 'BrowserShots' ) ):
 
 class BrowserShots {
-	
+
 	/**
 	 * Setup the object
 	 *
@@ -34,6 +34,7 @@ class BrowserShots {
 	 * Create a shortcode: [browser-shot url="http://link-to-website" width="600"]
 	 */
 	public function shortcode( $attributes, $content = '', $code = '' ) {
+
 		// Get attributes as parameters
 		extract( shortcode_atts( array(
 			'url' => '',
